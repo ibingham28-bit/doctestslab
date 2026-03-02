@@ -23,6 +23,7 @@ def is_even(n):
     >>> type(is_even(0))
     <class 'bool'>
     '''
+    return (n % 2) == 0
 
 
 def factorial(n):
@@ -47,6 +48,12 @@ def factorial(n):
     >>> factorial(100)
     93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
     '''
+    if n <= 1:
+        return 1
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
 
 
 def largest(xs):
@@ -66,6 +73,13 @@ def largest(xs):
     10
     >>> largest([])
     '''
+    if not xs:
+        return None
+    max_val = xs[0]
+    for x in xs[1:]:
+        if x > max_val:
+            max_val = x
+    return max_val
 
 
 def filter_odd(xs):
@@ -84,3 +98,4 @@ def filter_odd(xs):
     >>> filter_odd([20,13,4,16,8,19,10])
     [20, 4, 16, 8, 10]
     '''
+    return [x for x in xs if x % 2 == 0]
